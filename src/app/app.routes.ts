@@ -7,7 +7,7 @@ import { UserslistComponent } from './gestionUsuario/userslist/userslist.compone
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
-    {path: 'registre', component: RegisterComponent},
+    {path: 'register', component: RegisterComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'update/:id', component: UpdateuserComponent},
     {path: 'users', component: UserslistComponent},

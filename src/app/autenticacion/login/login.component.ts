@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from '../../services/gestionUsuarios/users.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent {
   async handleSubmit() {
 
     if (!this.email || !this.password) {
-      this.showError("Email and Password is required");
+      this.showError("Email y Contraseña es requerida");
       return
     }
 
@@ -35,7 +36,16 @@ export class LoginComponent {
       if(response.statusCode == 200){
         localStorage.setItem('token', response.token)
         localStorage.setItem('role', response.role)
-        this.router.navigate(['/profile'])
+        this.router.navigate(['/profile']).then(() => {
+          window.location.reload();
+        });
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Has iniciado sesión exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
       }else{
         this.showError(response.message)
       }

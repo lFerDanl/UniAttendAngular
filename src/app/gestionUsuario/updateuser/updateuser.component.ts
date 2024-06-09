@@ -3,6 +3,8 @@ import { UsersService } from '../../services/gestionUsuarios/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-updateuser',
@@ -37,8 +39,8 @@ export class UpdateuserComponent implements OnInit{
 
       try {
         let userDataResponse = await this.userService.getUsersById(this.userId, token)
-        const {name, email, role, city} = userDataResponse.ourUsers
-        this.userData = {name, email, role, city};
+        const {name, email, role, city, direccion, telefono, ci} = userDataResponse.ourUsers
+        this.userData = {name, email, role, city, direccion, telefono, ci};
         
       } catch (error:any) {
         this.showError(error.message);
@@ -46,17 +48,34 @@ export class UpdateuserComponent implements OnInit{
   }
 
   async updateUser(){
-    const confitm = confirm("Are you sure you wanna update this user")
-    if(!confirm) return
+    const confirmUpdate = await Swal.fire({
+      title: 'Estas seguro?',
+      text: 'Quieres actualizar este usuario?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Actualizar!'
+    });
+  
+    if (!confirmUpdate.isConfirmed) {
+      return;
+    }
     try{
       const token = localStorage.getItem('token')
       if(!token){
-        throw new Error("Token not found")
+        throw new Error("Token no encontrado")
       }
       const res = await this.userService.updateUSer(this.userId, this.userData, token);
       console.log(res)
 
       if(res.statusCode === 200){
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario Actualizado Exitosamente!',
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/users'])
       }else{
         this.showError(res.message)

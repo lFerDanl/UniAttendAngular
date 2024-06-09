@@ -1,8 +1,8 @@
-<nav>
+<nav style="background-color: rgba(15, 104, 221, 0.699);">
     <ul>
-        <li *ngIf = "!isAuthenticated"><a routerLink = "/login">Phegon Dev</a></li>
-        <li *ngIf = "isAuthenticated"><a routerLink = "/profile">Profile</a></li>
-        <li *ngIf = "isAdmin"><a routerLink = "/users">Users Management</a></li>
+        <li *ngIf = "!isAuthenticated"><a routerLink = "/login">UniAttend</a></li>
+        <li *ngIf = "isAuthenticated"><a routerLink = "/profile">Perfil</a></li>
+        <li *ngIf = "isAdmin"><a routerLink = "/users">Gestión de Ususarios</a></li>
         <li *ngIf = "!isAuthenticated"><a routerLink = "/login">Login</a></li>
         <li *ngIf = "isAuthenticated"><a routerLink = "" (click)="logout()">Logout</a></li>
 

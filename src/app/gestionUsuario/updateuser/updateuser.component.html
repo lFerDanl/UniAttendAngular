@@ -1,23 +1,35 @@
 <div class="container">
     <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
-    <h2>Update User</h2>
+    <h2>Actualizar Usuario</h2>
     <form (ngSubmit)="updateUser()">
         <div class="form-group">
-                <label for="">Name: </label>
+                <label for="">Nombre: </label>
                 <input type="text" name="name" [(ngModel)]="userData.name">
         </div>
         <div class="form-group">
                 <label for="">Email: </label>
-                <input type="text" name="emaik" [(ngModel)]="userData.email">
+                <input type="text" name="email" [(ngModel)]="userData.email">
+        </div>
+        <div class="form-group">
+                <label for="">Dirección: </label>
+                <input type="text" name="direccion" [(ngModel)]="userData.direccion">
+        </div>
+        <div class="form-group">
+                <label for="">Teléfono: </label>
+                <input type="text" name="telefono" [(ngModel)]="userData.telefono">
+        </div>
+        <div class="form-group">
+                <label for="">C.I.: </label>
+                <input type="text" name="ci" [(ngModel)]="userData.ci">
         </div>
         <div class="form-group">
                 <label for="">Role: </label>
                 <input type="text" name="role" [(ngModel)]="userData.role">
         </div>
         <div class="form-group">
-                <label for="">City: </label>
+                <label for="">Ciudad: </label>
                 <input type="text" name="city" [(ngModel)]="userData.city">
         </div>
-        <button type="submit">Update</button>
+        <button type="submit">Actualizar</button>
     </form>
 </div>
