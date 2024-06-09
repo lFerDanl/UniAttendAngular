@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UsersService } from '../../services/gestionUsuarios/users.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-userslist',
@@ -40,18 +42,35 @@ export class UserslistComponent implements OnInit{
   }
 
   async deleteUser(userId: string) {
-    const confirmDelete = confirm('Are you sure you want to delete this user?');
-    if (confirmDelete) {
-      try {
-        const token: any = localStorage.getItem('token');
-        await this.userService.deleteUser(userId, token);
-        // Refresh the user list after deletion
-        this.loadUsers();
-      } catch (error: any) {
-        this.showError(error.message);
+    Swal.fire({
+      title: "Estas Seguro?",
+      text: "No podrás deshacer los cambios!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Borrar"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const token: any = localStorage.getItem('token');
+          await this.userService.deleteUser(userId, token);
+          // Refresh the user list after deletion
+          this.loadUsers();
+  
+          // Mostrar mensaje de éxito con SweetAlert2
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario Eliminado Exitosamente!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } catch (error: any) {
+          this.showError(error.message);
+        }
       }
-    }
-  }
+    });
+  } 
 
   navigateToUpdate(userId: string) {
     this.router.navigate(['/update', userId]);
@@ -60,7 +79,7 @@ export class UserslistComponent implements OnInit{
   showError(message: string) {
     this.errorMessage = message;
     setTimeout(() => {
-      this.errorMessage = ''; // Clear the error message after the specified duration
+      this.errorMessage = '';
     }, 3000);
   }
 

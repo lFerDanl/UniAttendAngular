@@ -1,13 +1,16 @@
 <div class="container">
-    <h2>Management Page</h2>
+    <h2>Gestión de Usuarios</h2>
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-    <button routerLink="/register" class="reg-button">Add User</button>
+    <button routerLink="/register" class="reg-button">Regisrar Usuario</button>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>C.I.</th>
                 <th>City</th>
                 <th>Actions</th>
             </tr>
@@ -17,10 +20,13 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.direccion }}</td>
+                <td>{{ user.telefono }}</td>
+                <td>{{ user.ci }}</td>
                 <td>{{ user.city }}</td>
                 <td>
-                    <button class="delete-button" (click)="deleteUser(user.id)">Delete</button>
-                    <button class="update-button" (click)="navigateToUpdate(user.id)">Update</button>
+                    <button class="delete-button" (click)="deleteUser(user.id)">Eliminar</button>
+                    <button class="update-button" (click)="navigateToUpdate(user.id)">Actualizar</button>
                 </td>
             </tr>
         </tbody>
