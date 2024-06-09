@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Gestión de Horarios</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button routerLink="/crear-horario" class="reg-button">Crear Horario</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Día</th>
+                <th>Hora de Inicio</th>
+                <th>Hora de Fin</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let horario of horarios" key="horario.id">
+                <td>{{ horario.id }}</td>
+                <td>{{ horario.dia }}</td>
+                <td>{{ horario.horarioInicio }}</td>
+                <td>{{ horario.horarioFin }}</td>
+                <td>
+                    <button class="delete-button" (click)="deleteHorario(horario.id)">Eliminar</button>
+                    <button class="update-button" (click)="navigateToUpdate(horario.id)">Actualizar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
