@@ -3,6 +3,7 @@
         <li *ngIf = "!isAuthenticated"><a routerLink = "/login">UniAttend</a></li>
         <li *ngIf = "isAuthenticated"><a routerLink = "/profile">Perfil</a></li>
         <li *ngIf = "isAdmin"><a routerLink = "/users">Gestión de Ususarios</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/horarios">Gestión de Horarios</a></li>
         <li *ngIf = "!isAuthenticated"><a routerLink = "/login">Login</a></li>
         <li *ngIf = "isAuthenticated"><a routerLink = "" (click)="logout()">Logout</a></li>
 
