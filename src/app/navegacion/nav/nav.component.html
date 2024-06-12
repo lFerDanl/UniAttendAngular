@@ -4,7 +4,16 @@
         <li *ngIf = "isAuthenticated"><a routerLink = "/profile">Perfil</a></li>
         <li *ngIf = "isAdmin"><a routerLink = "/users">Gestión de Ususarios</a></li>
         <li *ngIf = "isAdmin"><a routerLink="/horarios">Gestión de Horarios</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/materias">Gestión de Materias</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/grupos">Gestión de Grupos</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/facultades">Gestión de Facultades</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/carreras">Gestión de Carreras</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/modulos">Gestión de Modulos</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/aulas">Gestión de Aulas</a></li>
+        <li *ngIf = "isAdmin"><a routerLink="/programaciones">Gestión de Programaciones</a></li>
+        <li *ngIf = "isAuthenticated"><a routerLink="/asistencias">Gestión de Asistencias</a></li>
         <li *ngIf = "!isAuthenticated"><a routerLink = "/login">Login</a></li>
+        <li *ngIf = "!isAuthenticated"><a routerLink = "/aleatorio">Gestion</a></li>
         <li *ngIf = "isAuthenticated"><a routerLink = "" (click)="logout()">Logout</a></li>
 
     </ul>

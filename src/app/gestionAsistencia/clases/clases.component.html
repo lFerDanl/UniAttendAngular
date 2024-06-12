@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Clases de Hoy</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Materia</th>
+                <th>Grupo</th>
+                <th>Docente</th>
+                <th>Horario</th>
+                <th>Modulo</th>
+                <th>Aula</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let clase of clases">
+                <td>{{ clase.id }}</td>
+                <td>{{ clase.programacionAcademica.materia.nombre }}</td>
+                <td>{{ clase.programacionAcademica.grupo.nombre }}</td>
+                <td>{{ clase.programacionAcademica.usuario.name }}</td>
+                <td>{{ clase.horario.dia }}-{{ clase.horario.horarioInicio }}-{{ clase.horario.horarioFin }}</td>
+                <td>{{ clase.modulo.nro }}</td> <!-- Ajusta según la estructura de tu objeto 'clase' -->
+                <td>{{ clase.aula.nro }}</td> <!-- Ajusta según la estructura de tu objeto 'clase' -->
+                 <!-- Ajusta según la estructura de tu objeto 'clase' -->
+                <td>
+                    <button class="reg-button" (click)="registrarAsistencia(clase.id)">Registrar Asistencia</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

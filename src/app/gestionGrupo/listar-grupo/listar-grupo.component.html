@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Gestión de Grupos</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button routerLink="/crear-grupo" class="reg-button">Crear Grupo</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let grupo of grupos" key="grupo.id">
+                <td>{{ grupo.id }}</td>
+                <td>{{ grupo.nombre }}</td>
+                <td>
+                    <button class="delete-button" (click)="deleteGrupo(grupo.id)">Eliminar</button>
+                    <button class="update-button" (click)="navigateToUpdate(grupo.id)">Actualizar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

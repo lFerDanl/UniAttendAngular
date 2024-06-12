@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Gestión de Facultades</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button routerLink="/crear-facultad" class="reg-button">Crear Facultad</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let facultad of facultades" key="facultad.id">
+                <td>{{ facultad.id }}</td>
+                <td>{{ facultad.nombre }}</td>
+                <td>
+                    <button class="delete-button" (click)="deleteFacultad(facultad.id)">Eliminar</button>
+                    <button class="update-button" (click)="navigateToUpdate(facultad.id)">Actualizar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

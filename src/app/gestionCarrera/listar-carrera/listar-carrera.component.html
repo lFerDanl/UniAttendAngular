@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Gestión de Carreras</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button routerLink="/crear-carrera" class="reg-button">Crear Carrera</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de Carrera</th>
+                <th>Facultad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let carrera of carreras" key="carrera.id">
+                <td>{{ carrera.id }}</td>
+                <td>{{ carrera.nombre }}</td>
+                <td>{{ carrera.facultad.nombre }}</td>
+                <td>
+                    <button class="delete-button" (click)="deleteCarrera(carrera.id)">Eliminar</button>
+                    <button class="update-button" (click)="navigateToUpdate(carrera.id)">Actualizar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

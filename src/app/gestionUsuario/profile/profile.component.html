@@ -4,6 +4,9 @@
     <h2>Información de Perfil</h2>
     <p>Nombre: {{profileInfo?.ourUsers?.name}}</p>
     <p>Email: {{profileInfo?.ourUsers?.email}}</p>
-    <p>Ciudad: {{profileInfo?.ourUsers?.city}}</p>
+    <p>Direccion: {{profileInfo?.ourUsers?.direccion}}</p>
+    <p>Telefono: {{profileInfo?.ourUsers?.telefono}}</p>
+    <p>C.I.: {{profileInfo?.ourUsers?.ci}}</p>
+    <p>Role: {{profileInfo?.ourUsers?.role}}</p>
     <button *ngIf ="profileInfo?.ourUsers?.role === 'ADMIN'"  (click)="updateProfile(profileInfo?.ourUsers?.id)">Actualizar Perfil</button>
 </div>

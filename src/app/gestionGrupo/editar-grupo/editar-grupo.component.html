@@ -1,0 +1,11 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Actualizar Grupo</h2>
+    <form (ngSubmit)="updateGrupo()">
+        <div class="form-group">
+            <label for="">Nombre:</label>
+            <input type="text" name="nombre" [(ngModel)]="grupoData.nombre">
+        </div>
+        <button type="submit">Actualizar Grupo</button>
+    </form>
+</div>

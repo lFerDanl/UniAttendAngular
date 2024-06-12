@@ -1,19 +1,27 @@
 <div class="container">
-    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-    <h2>Crear Horario</h2>
-    <form (submit)="handleSubmit()">
-      <div class="form-group">
-        <label>Día:</label>
-        <input type="text" name="dia" [(ngModel)]="formData.dia" required />
-      </div>
-      <div class="form-group">
-        <label>Hora de Inicio:</label>
-        <input type="text" name="horarioInicio" [(ngModel)]="formData.horarioInicio" required />
-      </div>
-      <div class="form-group">
-        <label>Hora de Fin:</label>
-        <input type="text" name="horarioFin" [(ngModel)]="formData.horarioFin" required />
-      </div>
-      <button type="submit">Guardar Horario</button>
-    </form>
-  </div>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  <h2>Crear Horario</h2>
+  <form (submit)="handleSubmit()">
+    <div class="form-group">
+      <label for="dia">Día:</label>
+      <select id="dia" name="dia" [(ngModel)]="formData.dia" required>
+        <option value="" disabled selected>Selecciona un día</option>
+        <option value="Lunes">Lunes</option>
+        <option value="Martes">Martes</option>
+        <option value="Miércoles">Miércoles</option>
+        <option value="Jueves">Jueves</option>
+        <option value="Viernes">Viernes</option>
+        <option value="Sábado">Sábado</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Hora de Inicio:</label>
+      <input type="time" name="horarioInicio" [(ngModel)]="formData.horarioInicio" required />
+    </div>
+    <div class="form-group">
+      <label>Hora de Fin:</label>
+      <input type="time" name="horarioFin" [(ngModel)]="formData.horarioFin" required />
+    </div>
+    <button type="submit">Guardar Horario</button>
+  </form>
+</div>
