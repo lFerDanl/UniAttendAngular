@@ -1,0 +1,25 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Crear Programación Horaria</h2>
+    <form (submit)="handleSubmit($event)">
+      <div class="form-group">
+        <label>Horario:</label>
+        <select name="horario" [(ngModel)]="formData.horario" required>
+          <option *ngFor="let horario of horarios" [ngValue]="horario">{{ horario.dia }}-{{ horario.horarioInicio }}-{{ horario.horarioFin }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Módulo:</label>
+        <select name="modulo" [(ngModel)]="formData.modulo" required>
+          <option *ngFor="let modulo of modulos" [ngValue]="modulo">{{ modulo.nro }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Aula:</label>
+        <select name="aula" [(ngModel)]="formData.aula" required>
+          <option *ngFor="let aula of aulas" [ngValue]="aula">{{ aula.nro }}</option>
+        </select>
+      </div>
+      <button type="submit">Guardar Programación Horaria</button>
+    </form>
+  </div>

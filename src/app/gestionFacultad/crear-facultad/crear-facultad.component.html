@@ -1,0 +1,11 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Crear Facultad</h2>
+    <form (submit)="handleSubmit()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" [(ngModel)]="formData.nombre" required />
+      </div>
+      <button type="submit">Guardar Facultad</button>
+    </form>
+  </div>

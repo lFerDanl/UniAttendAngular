@@ -11,7 +11,7 @@ export class HorariosService {
   constructor(private http: HttpClient) { }
 
   async guardarHorario(horarioData: any, token: string): Promise<any> {
-    const url = `${this.BASE_URL}/horario/guardar`;
+    const url = `${this.BASE_URL}/admin/horario/guardar`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -24,7 +24,7 @@ export class HorariosService {
   }
 
   async actualizarHorario(horarioId: string, horarioData: any, token: string): Promise<any> {
-    const url = `${this.BASE_URL}/horario/actualizar/${horarioId}`;
+    const url = `${this.BASE_URL}/admin/horario/actualizar/${horarioId}`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -37,7 +37,7 @@ export class HorariosService {
   }
 
   async eliminarHorario(horarioId: string, token: string): Promise<any> {
-    const url = `${this.BASE_URL}/horario/eliminar/${horarioId}`;
+    const url = `${this.BASE_URL}/admin/horario/eliminar/${horarioId}`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -50,7 +50,7 @@ export class HorariosService {
   }
 
   async listarHorarios(token: string): Promise<any> {
-    const url = `${this.BASE_URL}/horario/listar`;
+    const url = `${this.BASE_URL}/admin/horario/listar`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -63,7 +63,7 @@ export class HorariosService {
   }
 
   async getHorarioById(horarioId: string, token: string): Promise<any> {
-    const url = `${this.BASE_URL}/horario/${horarioId}`;
+    const url = `${this.BASE_URL}/admin/horario/${horarioId}`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });

@@ -1,0 +1,11 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Actualizar Materia</h2>
+    <form (ngSubmit)="updateMateria()">
+        <div class="form-group">
+            <label for="">Nombre:</label>
+            <input type="text" name="nombre" [(ngModel)]="materiaData.nombre">
+        </div>
+        <button type="submit">Actualizar Materia</button>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Crear Módulo</h2>
+    <form (submit)="handleSubmit()">
+      <div class="form-group">
+        <label for="nro">Número de Módulo:</label>
+        <input type="number" name="nro" [(ngModel)]="formData.nro" required />
+      </div>
+      <div class="form-group">
+        <label>Aulas Disponibles:</label>
+        <div *ngFor="let aula of aulasDisponibles" class="checkbox-container">
+            <input type="checkbox" name="aulasId" [value]="aula.id" 
+                   [checked]="isAulaSelected(aula.id)" (change)="toggleAulaSelection(aula.id)" /> 
+            <span class="aula-number">Aula-{{ aula.nro }}</span> 
+        </div>
+      </div>
+      <button type="submit">Crear Módulo</button>
+    </form>
+</div>

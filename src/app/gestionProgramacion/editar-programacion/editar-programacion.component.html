@@ -1,0 +1,37 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Actualizar Programación Académica</h2>
+    <form (ngSubmit)="updateProgramacion()">
+        <div class="form-group">
+            <label>Cupos:</label>
+            <input type="number" name="cupos" [(ngModel)]="formData.cupos" required />
+        </div>
+        <div class="form-group">
+            <label>Materia:</label>
+            <select name="materia" [(ngModel)]="formData.materia" required>
+                <option *ngFor="let materia of materias" [ngValue]="materia">{{ materia.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Grupo:</label>
+            <select name="grupo" [(ngModel)]="formData.grupo" required>
+                <option *ngFor="let grupo of grupos" [ngValue]="grupo">{{ grupo.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Usuario:</label>
+            <select name="usuario" [(ngModel)]="formData.usuario" required>
+                <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.name }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Carrera:</label>
+            <div *ngFor="let carrera of carreras" class="checkbox-container">
+                <input type="checkbox" name="carrerasId" [value]="carrera.id" 
+                       [checked]="isCarreraSelected(carrera.id)" (change)="toggleCarreraSelection(carrera.id)" /> 
+                {{ carrera.nombre }}
+            </div>
+        </div>
+        <button type="submit">Guardar Programación Académica</button>
+    </form>
+</div>

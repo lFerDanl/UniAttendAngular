@@ -1,0 +1,25 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Actualizar Programación Horario</h2>
+    <form (ngSubmit)="updateProgramacionHorario()">
+        <div class="form-group">
+            <label for="">Horario:</label>
+            <select name="horario" [(ngModel)]="formData.horario">
+                <option *ngFor="let horario of horarios" [value]="horario.id">{{ horario.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Módulo:</label>
+            <select name="modulo" [(ngModel)]="formData.modulo">
+                <option *ngFor="let modulo of modulos" [value]="modulo.id">{{ modulo.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Aula:</label>
+            <select name="aula" [(ngModel)]="formData.aula">
+                <option *ngFor="let aula of aulas" [value]="aula.id">{{ aula.nombre }}</option>
+            </select>
+        </div>
+        <button type="submit">Actualizar Programación Horario</button>
+    </form>
+</div>

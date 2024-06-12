@@ -3,9 +3,17 @@
     <h2>Actualizar Horario</h2>
     <form (ngSubmit)="updateHorario()">
         <div class="form-group">
-            <label for="">Día:</label>
-            <input type="text" name="dia" [(ngModel)]="horarioData.dia">
-        </div>
+            <label for="dia">Día:</label>
+            <select id="dia" name="dia" [(ngModel)]="horarioData.dia" required>
+              <option value="" disabled selected>Selecciona un día</option>
+              <option value="MONDAY">Lunes</option>
+              <option value="TUESDAY">Martes</option>
+              <option value="WEDNESDAY">Miércoles</option>
+              <option value="THURSDAY">Jueves</option>
+              <option value="FRIDAY">Viernes</option>
+              <option value="SATURDAY">Sábado</option>
+            </select>
+          </div>
         <div class="form-group">
             <label for="">Hora de Inicio:</label>
             <input type="text" name="horarioInicio" [(ngModel)]="horarioData.horarioInicio">
