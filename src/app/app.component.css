@@ -1,0 +1,7 @@
+.small-logo {
+    width: 50px;
+    height: auto; /* Esto garantiza que la imagen conserve su proporción */
+}
+.hidden {
+    display: none;
+}

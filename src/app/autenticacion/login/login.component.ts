@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from '../../services/gestionUsuarios/users.service';
 import { Router } from '@angular/router';
@@ -24,6 +24,8 @@ export class LoginComponent {
   password: string = ''
   errorMessage: string = ''
 
+  @Output() loggedIn: EventEmitter<void> = new EventEmitter<void>();
+
   async handleSubmit() {
 
     if (!this.email || !this.password) {
@@ -34,6 +36,7 @@ export class LoginComponent {
     try {
       const response = await this.usersService.login(this.email, this.password);
       if(response.statusCode == 200){
+        this.loggedIn.emit();
         localStorage.setItem('token', response.token)
         localStorage.setItem('role', response.role)
         this.router.navigate(['/profile']).then(() => {
