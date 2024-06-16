@@ -27,92 +27,129 @@
 
 
 <!-- Barra lateral -->
-<div id="sidebar" style="width: 15rem"
-    class="bg-blue-900 h-screen fixed rounded-none border-none transition-all duration-200 ease-in-out overflow-y-auto" *ngIf="isAuthenticated">
+<div id="sidebar" style="width: 18rem; height: calc(100vh - 4rem);"
+    class="bg-blue-900 fixed rounded-none border-none transition-all duration-200 ease-in-out overflow-y-auto"
+    *ngIf="isAuthenticated">
     <!-- Items -->
     <div class="p-2 space-y-4">
         <!-- Perfil -->
-        <button *ngIf="isAuthenticated" routerLink = "/profile"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-user text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Perfil</span>
+        <button *ngIf="isAuthenticated"
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-user text-lg" routerLink="/profile"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/profile">Perfil</span>
         </button>
 
         <!-- Gestión de Ususarios -->
-        <button *ngIf="isAdmin" routerLink = "/users"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-users"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Ususarios</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-users" routerLink="/users"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/users">Gestión de
+                Ususarios</span>
         </button>
         <!-- Gestión de Horarios -->
-        <button *ngIf="isAdmin" routerLink="/horarios"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-clock text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Horarios</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-clock text-lg" routerLink="/horarios"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/horarios">Gestión de
+                Horarios</span>
         </button>
         <!-- Gestión de Materias -->
-        <button *ngIf="isAdmin" routerLink="/materias"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-book-open text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Materias</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-book-open text-lg" routerLink="/materias"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/materias">Gestión de
+                Materias</span>
         </button>
         <!-- Gestión de Grupos -->
-        <button *ngIf="isAdmin" routerLink="/grupos"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-tags text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Grupos</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-tags text-lg" routerLink="/grupos"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/grupos">Gestión de
+                Grupos</span>
         </button>
         <!-- Gestión de Facultades -->
-        <button *ngIf="isAdmin" routerLink="/facultades"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-building text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Facultades</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-building text-lg" routerLink="/facultades"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/facultades">Gestión de
+                Facultades</span>
         </button>
         <!-- Gestión de Carreras -->
-        <button *ngIf="isAdmin" routerLink="/carreras"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-graduation-cap text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Carreras</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-graduation-cap text-lg" routerLink="/carreras"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/carreras">Gestión de
+                Carreras</span>
         </button>
         <!-- Gestión de Modulos -->
-        <button *ngIf="isAdmin" routerLink="/modulos"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-university text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Modulos</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-university text-lg" routerLink="/modulos"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/modulos">Gestión de
+                Modulos</span>
         </button>
         <!-- Gestión de Aulas -->
-        <button *ngIf="isAdmin" routerLink="/aulas"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-chalkboard-teacher text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Aulas</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-chalkboard-teacher text-lg" routerLink="/aulas"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/aulas">Gestión de
+                Aulas</span>
         </button>
         <!-- Gestión de Programaciones -->
-        <button *ngIf="isAdmin" routerLink="/programaciones"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-file-alt text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Programaciones</span>
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-file-alt text-lg" routerLink="/programaciones"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/programaciones">Gestión de
+                Programaciones</span>
         </button>
-        <!-- Gestión de Asistencias -->
-        <button *ngIf="isAdmin" routerLink="/asistencias"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="expandSidebar()">
-            <i class="fas fa-calendar-check text-lg"></i>
-            <span class="font-medium transition-all duration-200 opacity-0">Gestión de Asistencias</span>
+        <!-- Programaciones Académicas -->
+        <button *ngIf="isAuthenticated"
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fa-solid fa-clipboard-list" routerLink="/programaciones/usuario"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/programaciones/usuario">Programaciones
+                Académicas</span>
+        </button>
+        <!-- Resgistrar de Asistencias -->
+        <button *ngIf="isAuthenticated"
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fas fa-calendar-check text-lg" routerLink="/registrar/asistencias"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/registrar/asistencias">Registrar de
+                Asistencias</span>
+        </button>
+        <!-- Resgistros de Asistencias -->
+        <button *ngIf="isAdmin" class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fa-solid fa-book-open-reader" routerLink="/asistencias"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/asistencias">Registros de
+                Asistencias</span>
+        </button>
+        <!-- Aprobar Licencias -->
+        <button *ngIf="isAuthenticated"
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fa-solid fa-laptop-medical" routerLink="/licencias"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/licencias">Aprobar Licencias</span>
+        </button>
+        <!-- Licencias -->
+        <button *ngIf="isAuthenticated"
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fa-solid fa-user-injured" routerLink="/licencias/usuario"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/licencias/usuario">Solicitar Licencias</span>
+        </button>
+        <!-- Reportes -->
+        <button *ngIf="isAdmin"
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
+            <i class="fa-solid fa-file-invoice" routerLink="/reportes"></i>
+            <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
+                routerLink="/reportes">Reportes</span>
         </button>
         <!-- Logout -->
         <button *ngIf="isAuthenticated"
-            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group"
-            (click)="logout()">
+            class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group" (click)="logout()">
             <i class="fas fa-sign-out-alt"></i>
             <span class="font-medium transition-all duration-200 opacity-0">Logout</span>
         </button>
@@ -121,7 +158,8 @@
 
 
 <!-- Contenedor gris al lado de la barra lateral -->
-<div class="ml-16 bg-gray-100 h-screen fixed w-full lg:w-full transition-all duration-200 ease-in-out pr-10 mr-16" *ngIf="isAuthenticated">
+<div class="ml-16 bg-gray-100 h-screen fixed w-full lg:w-full transition-all duration-200 ease-in-out pr-10 mr-16 overflow-y-auto"
+    *ngIf="isAuthenticated" style="height: calc(100vh - 4rem);">
 
     <!-- Buscador con Icono -->
     <div class="flex items-center w-full mt-2 p-4" style="max-width: 94%">
@@ -145,4 +183,3 @@
 <div *ngIf="!isAuthenticated">
     <app-login (loggedIn)="onLogin()"></app-login>
 </div>
-

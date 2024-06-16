@@ -11,6 +11,7 @@
                 <th>Horario</th>
                 <th>Modulo</th>
                 <th>Aula</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -22,7 +23,8 @@
                 <td>{{ clase.programacionAcademica.usuario.name }}</td>
                 <td>{{ clase.horario.dia }}-{{ clase.horario.horarioInicio }}-{{ clase.horario.horarioFin }}</td>
                 <td>{{ clase.modulo.nro }}</td> <!-- Ajusta según la estructura de tu objeto 'clase' -->
-                <td>{{ clase.aula.nro }}</td> <!-- Ajusta según la estructura de tu objeto 'clase' -->
+                <td>{{ clase.aula.nro }}</td>
+                <td>{{ clase.asistencia.estado }}</td> <!-- Ajusta según la estructura de tu objeto 'clase' -->
                  <!-- Ajusta según la estructura de tu objeto 'clase' -->
                 <td>
                     <button class="reg-button" (click)="registrarAsistencia(clase.id)">Registrar Asistencia</button>

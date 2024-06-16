@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Programaciones Académicas</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cupos</th>
+                <th>Carrera</th>
+                <th>Materia</th>
+                <th>Grupo</th>
+                <th>Docente</th>
+                <th>Programacion Horario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let programacion of programaciones" key="programacion.id">
+                <td>{{ programacion.id }}</td>
+                <td>{{ programacion.cupos }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let carrera of programacion.carreras">{{ carrera.nombre }}</li> <!-- Aquí asumiendo que 'carrera' tiene una propiedad 'nombre' -->
+                    </ul>
+                </td> 
+                <td>{{ programacion.materia.nombre }}</td> <!-- Aquí asumiendo que 'materia' tiene una propiedad 'nombre' -->
+                <td>{{ programacion.grupo.nombre }}</td> <!-- Aquí asumiendo que 'grupo' tiene una propiedad 'nombre' -->
+                <td>{{ programacion.usuario.name }}</td> <!-- Aquí asumiendo que 'usuario' tiene una propiedad 'nombre' -->
+                <td>
+                    <table>
+                        <tbody>
+                            <tr *ngFor="let programacionhr of programacion.programacionHorarios" key="horario.id">
+                                <td>{{ programacionhr.modulo.nro }}</td>
+                                <td>{{ programacionhr.aula.nro }}</td>
+                                <td>{{ programacionhr.horario.dia }}-{{ programacionhr.horario.horarioInicio }}-{{ programacionhr.horario.horarioFin }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

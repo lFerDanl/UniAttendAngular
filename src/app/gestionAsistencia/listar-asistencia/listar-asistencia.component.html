@@ -1,1 +1,30 @@
-<p>listar-asistencia works!</p>
+<div class="container">
+    <h2>Registros de Asistencias</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Materia</th>
+            <th>Grupo</th>
+            <th>Docente</th>
+            <th>Horario</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asistencia of asistencias">
+            <td>{{ asistencia.id }}</td>
+            <td>{{ asistencia.programacionHorario.programacionAcademica.materia.nombre }}</td>
+            <td>{{ asistencia.programacionHorario.programacionAcademica.grupo.nombre }}</td>
+            <td>{{ asistencia.usuario.name }}</td>
+            <td>{{ asistencia.programacionHorario.horario.dia }}-{{ asistencia.programacionHorario.horario.horarioInicio }}-{{ asistencia.programacionHorario.horario.horarioFin }}</td>
+            <td>{{ asistencia.fecha }}</td>
+            <td>{{ asistencia.hora }}</td>
+            <td>{{ asistencia.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

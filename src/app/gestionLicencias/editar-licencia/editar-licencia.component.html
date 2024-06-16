@@ -1,0 +1,19 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <h2>Editar Licencia</h2>
+    <form (ngSubmit)="updateLicencia()">
+      <div class="form-group">
+        <label for="tipo">Tipo:</label>
+        <input type="text" name="tipo" [(ngModel)]="licenciaData.tipo" required />
+      </div>
+      <div class="form-group">
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" name="fechaInicio" [(ngModel)]="licenciaData.fechaInicio" required />
+      </div>
+      <div class="form-group">
+        <label for="fechaFin">Fecha de Fin:</label>
+        <input type="date" name="fechaFin" [(ngModel)]="licenciaData.fechaFin" required />
+      </div>
+      <button type="submit">Actualizar Licencia</button>
+    </form>
+  </div>

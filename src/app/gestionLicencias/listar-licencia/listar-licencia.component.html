@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Gestión de Licencias</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Fecha de Inicio</th>
+          <th>Fecha de Fin</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let licencia of licencias">
+          <td>{{ licencia.tipo }}</td>
+          <td>{{ licencia.fechaInicio }}</td>
+          <td>{{ licencia.fechaFin }}</td>
+          <td>{{ licencia.estado }}</td>
+          <td>
+            <button class="delete-button" (click)="aprobarLicencia(licencia.id, 'DENEGADO')">Denegar</button>
+            <button class="update-button" (click)="aprobarLicencia(licencia.id, 'APROBADO')">Aprobar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
