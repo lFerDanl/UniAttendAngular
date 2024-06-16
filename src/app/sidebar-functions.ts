@@ -4,7 +4,7 @@ export function expandSidebar() {
 
     if (sidebar && mainContent) {
         if (sidebar.style.width === '21rem') {
-            sidebar.style.width = '15rem';
+            sidebar.style.width = '18rem';
             mainContent.style.marginLeft = '4rem';
             sidebar.classList.remove('text-left', 'px-6');
             sidebar.classList.add('text-center', 'px-0');

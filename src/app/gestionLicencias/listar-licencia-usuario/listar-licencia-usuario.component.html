@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Licencias</h2>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button routerLink="/crear-licencia" class="reg-button">Solicitar Licencia</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Fecha de Inicio</th>
+          <th>Fecha de Fin</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let licencia of licencias">
+          <td>{{ licencia.tipo }}</td>
+          <td>{{ licencia.fechaInicio }}</td>
+          <td>{{ licencia.fechaFin }}</td>
+          <td>{{ licencia.estado }}</td>
+          <td>
+            <button class="delete-button" (click)="deleteLicencia(licencia.id)">Eliminar</button>
+            <button class="update-button" (click)="navigateToUpdate(licencia.id)">Actualizar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

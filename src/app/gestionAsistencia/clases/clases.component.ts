@@ -32,8 +32,24 @@ export class ClasesComponent {
       const response = await this.programacionesService.listarClasesDeHoy(token);
       if (response && response.statusCode === 200 && response.programacionHorarios) {
         this.clases = response.programacionHorarios;
+        this.clases.forEach(clase => clase.asistencia = { estado: 'No disponible' });
+        await this.loadAsistenciaDeHoy();
       } else {
         this.showError('No se encontraron clases para hoy.');
+      }
+    } catch (error: any) {
+      this.showError(error.message);
+    }
+  }
+
+  async loadAsistenciaDeHoy() {
+    try {
+      const token: any = localStorage.getItem('token');
+      for (const clase of this.clases) {
+        const response = await this.asistenciasService.getAsistenciaDeHoy(clase.id, token);
+        if (response && response.statusCode === 200 && response.asistencia) {
+          clase.asistencia = response.asistencia;
+        }
       }
     } catch (error: any) {
       this.showError(error.message);
@@ -55,6 +71,7 @@ export class ClasesComponent {
           const token: any = localStorage.getItem('token');
           // console.log(token);
           const response = await this.asistenciasService.registrarAsistencia(programacionHorarioId, token);
+          console.log(response.error)
           if (response && response.statusCode === 200) {
             // Mostrar mensaje de éxito con SweetAlert2
             Swal.fire({

@@ -1,0 +1,11 @@
+<div>
+    <h2>Generar Reporte</h2>
+    <form (ngSubmit)="generarReporte()">
+      <label for="tipoReporte">Selecciona el tipo de reporte:</label>
+      <select id="tipoReporte" name="tipoReporte" [(ngModel)]="tipoReporte">
+        <option value="asistencias">Reporte de Asistencias</option>
+        <option value="programaciones">Reporte de Programaciones Académicas</option>
+      </select>
+      <button type="submit">Generar Reporte</button>
+    </form>
+  </div>

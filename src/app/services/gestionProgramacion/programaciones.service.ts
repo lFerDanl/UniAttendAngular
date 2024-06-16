@@ -56,7 +56,32 @@ export class ProgramacionesService {
     });
     try {
       const response = await this.http.get<any>(url, { headers }).toPromise();
-      console.log(response.error);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async listarProgramacionesPorUsuarioActual(token: string): Promise<any> {
+    const url = `${this.BASE_URL}/adminuser/programacion/listar/usuario`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.get<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async listarProgramacionesPorUsuario(usuarioId: string,token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/programacion/listar/usuario/${usuarioId}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.get<any>(url, { headers }).toPromise();
       return response;
     } catch (error) {
       throw error;
@@ -107,7 +132,6 @@ export class ProgramacionesService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    console.log(headers);
     try {
       const response = await this.http.get<any>(url, { headers }).toPromise();
       return response;

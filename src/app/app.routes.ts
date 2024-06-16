@@ -31,6 +31,14 @@ import { EditarProgramacionComponent } from './gestionProgramacion/editar-progra
 import { ListarProgramacionComponent } from './gestionProgramacion/listar-programacion/listar-programacion.component';
 import { CrearProgramacionHorarioComponent } from './gestionProgramacion/gestionProgramacionHorario/crear-programacion-horario/crear-programacion-horario.component';
 import { ClasesComponent } from './gestionAsistencia/clases/clases.component';
+import { ListarAsistenciaComponent } from './gestionAsistencia/listar-asistencia/listar-asistencia.component';
+import { ListarProgramacionUsuarioComponent } from './gestionProgramacion/usuario/listar-programacion-usuario/listar-programacion-usuario.component';
+import { CrearLicenciaComponent } from './gestionLicencias/crear-licencia/crear-licencia.component';
+import { EditarLicenciaComponent } from './gestionLicencias/editar-licencia/editar-licencia.component';
+import { ListarLicenciaComponent } from './gestionLicencias/listar-licencia/listar-licencia.component';
+import { EditarProgramacionHorarioComponent } from './gestionProgramacion/gestionProgramacionHorario/editar-programacion-horario/editar-programacion-horario.component';
+import { ListarLicenciaUsuarioComponent } from './gestionLicencias/listar-licencia-usuario/listar-licencia-usuario.component';
+import { ReporteComponent } from './gestionReportes/reporte/reporte.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -62,9 +70,16 @@ export const routes: Routes = [
     { path: 'crear-programacion', component: CrearProgramacionComponent }, 
     { path: 'editar-programacion/:id', component: EditarProgramacionComponent }, 
     { path: 'programaciones', component: ListarProgramacionComponent }, 
+    { path: 'programaciones/usuario', component: ListarProgramacionUsuarioComponent }, 
     { path: 'crear-programacion-horario/:id', component: CrearProgramacionHorarioComponent }, 
-    { path: 'editar-programacion-horario/:id', component: EditarProgramacionComponent }, 
-    { path: 'asistencias', component: ClasesComponent }, 
+    { path: 'editar-programacion-horario/:id', component: EditarProgramacionHorarioComponent }, 
+    { path: 'registrar/asistencias', component: ClasesComponent }, 
+    { path: 'crear-licencia', component: CrearLicenciaComponent }, 
+    { path: 'editar-licencia/:id', component: EditarLicenciaComponent }, 
+    { path: 'licencias', component: ListarLicenciaComponent }, 
+    { path: 'licencias/usuario', component: ListarLicenciaUsuarioComponent }, 
+    { path: 'asistencias', component: ListarAsistenciaComponent }, 
+    { path: 'reportes', component: ReporteComponent }, 
     { path: 'aleatorio', component: AleatorioComponent },
     { path: '**', component: LoginComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
