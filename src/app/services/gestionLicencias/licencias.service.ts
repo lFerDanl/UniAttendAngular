@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LicenciasService {
 
-  private BASE_URL = 'http://localhost:8080'; // URL base de tu API
+  private BASE_URL = 'http://68.183.122.161:8080'; // URL base de tu API
 
   constructor(private http: HttpClient) { }
 
