@@ -102,7 +102,7 @@ export class ProgramacionesService {
   }
 
   async getProgramacionHorarios(programacionId: string, token: string): Promise<any> {
-    const url = `${this.BASE_URL}/admin/programacion/${programacionId}/horarios`;
+    const url = `${this.BASE_URL}/adminuser/programacion/${programacionId}/horarios`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -115,7 +115,7 @@ export class ProgramacionesService {
   }
 
   async getProgramacionCarreras(programacionId: string, token: string): Promise<any> {
-    const url = `${this.BASE_URL}/admin/programacion/${programacionId}/carreras`;
+    const url = `${this.BASE_URL}/adminuser/programacion/${programacionId}/carreras`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });

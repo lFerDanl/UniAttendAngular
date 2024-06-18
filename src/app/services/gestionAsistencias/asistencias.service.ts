@@ -31,8 +31,6 @@ export class AsistenciasService {
     console.log(headers);
     try {
       const response = await this.http.get<any>(url, { headers }).toPromise();
-      console.log("hola");
-      console.log(response.message);
       return response;
     } catch (error) {
       console.log(error);
