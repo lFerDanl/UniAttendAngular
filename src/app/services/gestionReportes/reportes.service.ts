@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ReportesService {
 
-  private BASE_URL = "http://localhost:8080";
+  private BASE_URL = "http://68.183.122.161:8080";
 
   constructor(private http: HttpClient) { }
 
