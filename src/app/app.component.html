@@ -127,7 +127,7 @@
                 Asistencias</span>
         </button>
         <!-- Aprobar Licencias -->
-        <button *ngIf="isAuthenticated"
+        <button *ngIf="isAdmin"
             class=" px-3 flex items-center space-x-4 justify-start text-blue-300 rounded-lg group">
             <i class="fa-solid fa-laptop-medical" routerLink="/licencias"></i>
             <span class="font-medium transition-all duration-200 opacity-0" (click)="expandSidebar()"
